@@ -25,7 +25,7 @@ public class ReverseListSolutionTest {
     void testOneNode() {
         ListNode head = TestUtil.buildLinkedList(1);
         ListNode reversedHead = solution.reverseList(head);
-        TestUtil.checkOrder(reversedHead, Arrays.asList(1));
+        TestUtil.checkOrder(reversedHead, Collections.singletonList(1));
     }
 
     @Test
