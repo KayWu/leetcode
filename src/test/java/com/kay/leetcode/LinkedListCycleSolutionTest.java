@@ -48,7 +48,7 @@ class LinkedListCycleSolutionTest {
     }
 
     @Test
-    void testTotalCycleList() {
+    void testPureCycleList() {
         ListNode head = TestUtil.buildCycleLinkedList(Arrays.asList(1, 2, 3, 4, 5), 0);
         assertTrue(solution.hasCycle(head));
     }
