@@ -10,34 +10,34 @@ public class ReverseListSolutionTest {
     private ReverseListSolution solution;
 
     @BeforeEach
-    void setup() {
+    void setUp() {
         solution = new ReverseListSolution();
     }
 
     @Test
     void testEmptyList() {
-        ListNode head = TestUtil.buildListNode();
+        ListNode head = TestUtil.buildLinkedList();
         ListNode reversedHead = solution.reverseList(head);
         TestUtil.checkOrder(reversedHead, Collections.emptyList());
     }
 
     @Test
-    void testSingleList() {
-        ListNode head = TestUtil.buildListNode(1);
+    void testOneNode() {
+        ListNode head = TestUtil.buildLinkedList(1);
         ListNode reversedHead = solution.reverseList(head);
         TestUtil.checkOrder(reversedHead, Arrays.asList(1));
     }
 
     @Test
-    void testOddList() {
-        ListNode head = TestUtil.buildListNode(1, 2, 3, 4, 5);
+    void testOddSizeList() {
+        ListNode head = TestUtil.buildLinkedList(1, 2, 3, 4, 5);
         ListNode reversedHead = solution.reverseList(head);
         TestUtil.checkOrder(reversedHead, Arrays.asList(5, 4, 3, 2, 1));
     }
 
     @Test
-    void testEvenList() {
-        ListNode head = TestUtil.buildListNode(2, 3, 4);
+    void testEvenSizeList() {
+        ListNode head = TestUtil.buildLinkedList(2, 3, 4);
         ListNode reversedHead = solution.reverseList(head);
         TestUtil.checkOrder(reversedHead, Arrays.asList(4, 3, 2));
     }
