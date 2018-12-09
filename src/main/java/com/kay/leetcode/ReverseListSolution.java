@@ -3,7 +3,7 @@ package com.kay.leetcode;
 /**
  * https://leetcode.com/problems/reverse-linked-list/
  */
-public class ReverseLinkedListSolution {
+public class ReverseListSolution {
 
     public ListNode reverseList(ListNode head) {
         ListNode prev = null, cur = head;
