@@ -1,7 +1,5 @@
 package com.kay.leetcode;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Stack;
 
 /**
@@ -11,21 +9,15 @@ public class ValidParenthesesSolution {
 
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
-        Map<Character, Character> map = new HashMap<>();
-        map.put(')', '(');
-        map.put('}', '{');
-        map.put(']', '[');
-
-        for (Character c : s.toCharArray()) {
-            Character left = map.get(c);
-            if (left != null) {
-                if (stack.empty()) return false;
-                Character toMatch = stack.pop();
-                if (!left.equals(toMatch)) {
-                    return false;
-                }
-            } else {
-                stack.push(c);
+        for (char c : s.toCharArray()) {
+            if (c == '(') {
+                stack.push(')');
+            } else if (c == '[') {
+                stack.push(']');
+            } else if (c == '{') {
+                stack.push('}');
+            } else if (stack.isEmpty() || stack.pop() != c) {
+                return false;
             }
         }
         return stack.empty();
