@@ -2,6 +2,9 @@ package com.kay.leetcode;
 
 import java.util.Stack;
 
+/**
+ * https://leetcode.com/problems/implement-queue-using-stacks/
+ */
 public class MyQueue {
 
     private Stack<Integer> stackIn;
