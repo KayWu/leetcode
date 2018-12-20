@@ -8,6 +8,9 @@ import java.util.Stack;
 public class ValidParenthesesSolution {
 
     public boolean isValid(String s) {
+        if (s == null) {
+            throw new IllegalArgumentException();
+        }
         Stack<Character> stack = new Stack<>();
         for (char c : s.toCharArray()) {
             if (c == '(') {

@@ -3,8 +3,7 @@ package com.kay.leetcode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ValidParenthesesSolutionTest {
 
@@ -13,6 +12,11 @@ class ValidParenthesesSolutionTest {
     @BeforeEach
     void setUp() {
         solution = new ValidParenthesesSolution();
+    }
+
+    @Test
+    void testNull() {
+        assertThrows(IllegalArgumentException.class, () -> solution.isValid(null));
     }
 
     @Test

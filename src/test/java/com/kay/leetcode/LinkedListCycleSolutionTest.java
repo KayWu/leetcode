@@ -18,7 +18,7 @@ class LinkedListCycleSolutionTest {
     }
 
     @Test
-    void testEmptyList() {
+    void testNullNode() {
         ListNode head = TestUtil.buildLinkedList();
         assertFalse(solution.hasCycle(head));
     }

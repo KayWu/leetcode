@@ -16,7 +16,7 @@ class ReverseKGroupSolutionTest {
     }
 
     @Test
-    void testEmptyList() {
+    void testNullNode() {
         ListNode head = TestUtil.buildLinkedList();
         ListNode reversedHead = solution.reverseKGroup(head, 1);
         TestUtil.checkOrder(reversedHead, Collections.emptyList());

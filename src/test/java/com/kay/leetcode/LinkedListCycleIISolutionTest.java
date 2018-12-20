@@ -19,7 +19,7 @@ class LinkedListCycleIISolutionTest {
     }
 
     @Test
-    void testEmptyList() {
+    void testNullNode() {
         ListNode head = TestUtil.buildLinkedList();
         assertNull(solution.detectCycle(head));
     }
