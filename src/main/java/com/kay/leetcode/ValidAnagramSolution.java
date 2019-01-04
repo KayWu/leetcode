@@ -1,8 +1,5 @@
 package com.kay.leetcode;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * https://leetcode.com/problems/valid-anagram/
  */
@@ -15,24 +12,24 @@ public class ValidAnagramSolution {
         if (s.length() != t.length()) {
             return false;
         }
-        Map<Character, Integer> map = new HashMap<>();
+
+        int[] map = new int[26];
         for (Character c : s.toCharArray()) {
-            int count = map.getOrDefault(c, 0);
-            map.put(c, count + 1);
+            int ord = c - 'a';
+            map[ord] = map[ord] + 1;
         }
-
         for (Character c : t.toCharArray()) {
-            int count = map.getOrDefault(c, 0);
-            if (count == 0) {
+            int ord = c - 'a';
+            int remainCount = map[ord];
+            if (remainCount <= 0) {
                 return false;
             }
-            map.put(c, count - 1);
+            map[ord] = remainCount - 1;
         }
-
-        for (Integer count : map.values()) {
-            if (count != 0) {
-                return false;
-            }
+        for (int remainCount : map) {
+           if (remainCount != 0) {
+               return false;
+           }
         }
         return true;
     }
