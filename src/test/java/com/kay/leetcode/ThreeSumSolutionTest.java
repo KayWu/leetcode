@@ -53,5 +53,11 @@ class ThreeSumSolutionTest {
                 containsInAnyOrder(Arrays.asList(-1, 0, 1), Arrays.asList(0, 0, 0)));
     }
 
+    @Test
+    void exactMatch() {
+        assertThat(solution.threeSum(new int[]{-2, 1, 1}),
+                containsInAnyOrder(Arrays.asList(-2, 1, 1)));
+    }
+
 
 }

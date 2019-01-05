@@ -2,7 +2,6 @@ package com.kay.leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -13,48 +12,44 @@ public class ThreeSumSolution {
         if (nums == null) {
             throw new IllegalArgumentException();
         }
-        if (nums.length < 3) {
-            return Collections.emptyList();
-        }
-
         Arrays.sort(nums);
         List<List<Integer>> triplets = new ArrayList<>();
 
         int i = 0;
-        while (i < nums.length) {
+        while (i < nums.length - 2) {
             int target = -nums[i];
-            int j = i + 1;
-            int k = nums.length - 1;
-            if ((j + 1 < nums.length && nums[j] + nums[j + 1] > target) ||
-                    (k - 1 > i && nums[k] + nums[k - 1] < target)) {
-                i = nextRightDiffIndex(i, nums);
+            int lo = i + 1;
+            int hi = nums.length - 1;
+            if ((lo + 1 < nums.length && nums[lo] + nums[lo + 1] > target) ||
+                    (hi - 1 > i && nums[hi] + nums[hi - 1] < target)) {
+                i = nextRightDiffIndex(i, nums.length - 2, nums);
                 continue;
             }
-            while (j < k) {
-                if (nums[j] + nums[k] < target) {
-                    j = nextRightDiffIndex(j, nums);
-                } else if (nums[j] + nums[k] > target) {
-                    k = nextLeftDiffIndex(k, nums, i);
+            while (lo < hi) {
+                if (nums[lo] + nums[hi] < target) {
+                    lo = nextRightDiffIndex(lo, hi, nums);
+                } else if (nums[lo] + nums[hi] > target) {
+                    hi = nextLeftDiffIndex(hi, lo, nums);
                 } else {
-                    triplets.add(Arrays.asList(-target, nums[j], nums[k]));
-                    j = nextRightDiffIndex(j, nums);
-                    k = nextLeftDiffIndex(k, nums, i);
+                    triplets.add(Arrays.asList(-target, nums[lo], nums[hi]));
+                    lo = nextRightDiffIndex(lo, hi, nums);
+                    hi = nextLeftDiffIndex(hi, lo, nums);
                 }
             }
-            i = nextRightDiffIndex(i, nums);
+            i = nextRightDiffIndex(i, nums.length - 2, nums);
         }
         return triplets;
     }
 
-    private int nextRightDiffIndex(int index, int[] nums) {
-        while (index + 1 < nums.length && nums[index + 1] == nums[index]) {
+    private int nextRightDiffIndex(int index, int rightEdge, int[] nums) {
+        while (index + 1 < rightEdge && nums[index + 1] == nums[index]) {
             index++;
         }
         index++;
         return index;
     }
 
-    private int nextLeftDiffIndex(int index, int[] nums, int leftEdge) {
+    private int nextLeftDiffIndex(int index, int leftEdge, int[] nums) {
         while (index - 1 > leftEdge && nums[index - 1] == nums[index]) {
             index--;
         }
