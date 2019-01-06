@@ -19,37 +19,37 @@ class LinkedListCycleSolutionTest {
 
     @Test
     void testNullNode() {
-        ListNode head = TestUtil.buildLinkedList();
+        ListNode head = LinkedListUtil.buildLinkedList();
         assertFalse(solution.hasCycle(head));
     }
 
     @Test
     void testOneNode() {
-        ListNode head = TestUtil.buildLinkedList(1);
+        ListNode head = LinkedListUtil.buildLinkedList(1);
         assertFalse(solution.hasCycle(head));
     }
 
     @Test
     void testTwoNode() {
-        ListNode head = TestUtil.buildLinkedList(1, 2);
+        ListNode head = LinkedListUtil.buildLinkedList(1, 2);
         assertFalse(solution.hasCycle(head));
     }
 
     @Test
     void testOddSizeCycleList() {
-        ListNode head = TestUtil.buildCycleLinkedList(Arrays.asList(1, 2, 3), 1);
+        ListNode head = LinkedListUtil.buildCycleLinkedList(Arrays.asList(1, 2, 3), 1);
         assertTrue(solution.hasCycle(head));
     }
 
     @Test
     void testEvenSizeCycleList() {
-        ListNode head = TestUtil.buildCycleLinkedList(Arrays.asList(1, 2, 3, 4), 1);
+        ListNode head = LinkedListUtil.buildCycleLinkedList(Arrays.asList(1, 2, 3, 4), 1);
         assertTrue(solution.hasCycle(head));
     }
 
     @Test
     void testPureCycleList() {
-        ListNode head = TestUtil.buildCycleLinkedList(Arrays.asList(1, 2, 3, 4, 5), 0);
+        ListNode head = LinkedListUtil.buildCycleLinkedList(Arrays.asList(1, 2, 3, 4, 5), 0);
         assertTrue(solution.hasCycle(head));
     }
 }

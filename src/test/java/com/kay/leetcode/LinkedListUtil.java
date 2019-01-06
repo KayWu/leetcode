@@ -6,7 +6,7 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class TestUtil {
+public class LinkedListUtil {
 
     public static ListNode buildLinkedList(int... values) {
         ListNode head = null, prev = null;

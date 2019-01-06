@@ -20,39 +20,39 @@ class LinkedListCycleIISolutionTest {
 
     @Test
     void testNullNode() {
-        ListNode head = TestUtil.buildLinkedList();
+        ListNode head = LinkedListUtil.buildLinkedList();
         assertNull(solution.detectCycle(head));
     }
 
     @Test
     void testOneNode() {
-        ListNode head = TestUtil.buildLinkedList(1);
+        ListNode head = LinkedListUtil.buildLinkedList(1);
         assertNull(solution.detectCycle(head));
     }
 
     @Test
     void testTwoNode() {
-        ListNode head = TestUtil.buildLinkedList(1, 2);
+        ListNode head = LinkedListUtil.buildLinkedList(1, 2);
         assertNull(solution.detectCycle(head));
     }
 
     @Test
     void testOddSizeCycleList() {
-        ListNode head = TestUtil.buildCycleLinkedList(Arrays.asList(1, 2, 3), 1);
+        ListNode head = LinkedListUtil.buildCycleLinkedList(Arrays.asList(1, 2, 3), 1);
         ListNode cycleBeginNode = solution.detectCycle(head);
         assertThat(cycleBeginNode.val, is(2));
     }
 
     @Test
     void testEvenSizeCycleList() {
-        ListNode head = TestUtil.buildCycleLinkedList(Arrays.asList(1, 2, 3, 4), 1);
+        ListNode head = LinkedListUtil.buildCycleLinkedList(Arrays.asList(1, 2, 3, 4), 1);
         ListNode cycleBeginNode = solution.detectCycle(head);
         assertThat(cycleBeginNode.val, is(2));
     }
 
     @Test
     void testPureCycleList() {
-        ListNode head = TestUtil.buildCycleLinkedList(Arrays.asList(1, 2, 3, 4), 0);
+        ListNode head = LinkedListUtil.buildCycleLinkedList(Arrays.asList(1, 2, 3, 4), 0);
         ListNode cycleBeginNode = solution.detectCycle(head);
         assertThat(cycleBeginNode.val, is(1));
     }

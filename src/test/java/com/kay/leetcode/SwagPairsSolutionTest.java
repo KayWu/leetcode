@@ -16,36 +16,36 @@ class SwagPairsSolutionTest {
 
     @Test
     void testNullNode() {
-        ListNode head = TestUtil.buildLinkedList();
+        ListNode head = LinkedListUtil.buildLinkedList();
         ListNode reversedHead = solution.swapPairs(head);
-        TestUtil.checkOrder(reversedHead, Collections.emptyList());
+        LinkedListUtil.checkOrder(reversedHead, Collections.emptyList());
     }
 
     @Test
     void testOneNode() {
-        ListNode head = TestUtil.buildLinkedList(1);
+        ListNode head = LinkedListUtil.buildLinkedList(1);
         ListNode reversedHead = solution.swapPairs(head);
-        TestUtil.checkOrder(reversedHead, Arrays.asList(1));
+        LinkedListUtil.checkOrder(reversedHead, Arrays.asList(1));
     }
 
     @Test
     void testTwoNodes() {
-        ListNode head = TestUtil.buildLinkedList(1, 2);
+        ListNode head = LinkedListUtil.buildLinkedList(1, 2);
         ListNode reversedHead = solution.swapPairs(head);
-        TestUtil.checkOrder(reversedHead, Arrays.asList(2, 1));
+        LinkedListUtil.checkOrder(reversedHead, Arrays.asList(2, 1));
     }
 
     @Test
     void testEvenSizeList() {
-        ListNode head = TestUtil.buildLinkedList(1, 2, 3, 4);
+        ListNode head = LinkedListUtil.buildLinkedList(1, 2, 3, 4);
         ListNode reversedHead = solution.swapPairs(head);
-        TestUtil.checkOrder(reversedHead, Arrays.asList(2, 1, 4, 3));
+        LinkedListUtil.checkOrder(reversedHead, Arrays.asList(2, 1, 4, 3));
     }
 
     @Test
     void testOddSizeList() {
-        ListNode head = TestUtil.buildLinkedList(1, 2, 3, 4, 5);
+        ListNode head = LinkedListUtil.buildLinkedList(1, 2, 3, 4, 5);
         ListNode reversedHead = solution.swapPairs(head);
-        TestUtil.checkOrder(reversedHead, Arrays.asList(2, 1, 4, 3, 5));
+        LinkedListUtil.checkOrder(reversedHead, Arrays.asList(2, 1, 4, 3, 5));
     }
 }

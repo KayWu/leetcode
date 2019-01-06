@@ -17,37 +17,37 @@ class ReverseKGroupSolutionTest {
 
     @Test
     void testNullNode() {
-        ListNode head = TestUtil.buildLinkedList();
+        ListNode head = LinkedListUtil.buildLinkedList();
         ListNode reversedHead = solution.reverseKGroup(head, 1);
-        TestUtil.checkOrder(reversedHead, Collections.emptyList());
+        LinkedListUtil.checkOrder(reversedHead, Collections.emptyList());
     }
 
     @Test
     void testOneNode() {
-        ListNode head = TestUtil.buildLinkedList(1);
+        ListNode head = LinkedListUtil.buildLinkedList(1);
         ListNode reversedHead = solution.reverseKGroup(head, 1);
-        TestUtil.checkOrder(reversedHead, Collections.singletonList(1));
+        LinkedListUtil.checkOrder(reversedHead, Collections.singletonList(1));
     }
 
     @Test
     void testListSizeEqualK() {
-        ListNode head = TestUtil.buildLinkedList(1, 2);
+        ListNode head = LinkedListUtil.buildLinkedList(1, 2);
         ListNode reversedHead = solution.reverseKGroup(head, 2);
-        TestUtil.checkOrder(reversedHead, Arrays.asList(2, 1));
+        LinkedListUtil.checkOrder(reversedHead, Arrays.asList(2, 1));
     }
 
     @Test
     void testListSizeDivideByK() {
-        ListNode head = TestUtil.buildLinkedList(1, 2, 3, 4);
+        ListNode head = LinkedListUtil.buildLinkedList(1, 2, 3, 4);
         ListNode reversedHead = solution.reverseKGroup(head, 2);
-        TestUtil.checkOrder(reversedHead, Arrays.asList(2, 1, 4, 3));
+        LinkedListUtil.checkOrder(reversedHead, Arrays.asList(2, 1, 4, 3));
     }
 
     @Test
     void testListSizeNotDivideByK() {
-        ListNode head = TestUtil.buildLinkedList(1, 2, 3, 4);
+        ListNode head = LinkedListUtil.buildLinkedList(1, 2, 3, 4);
         ListNode reversedHead = solution.reverseKGroup(head, 3);
-        TestUtil.checkOrder(reversedHead, Arrays.asList(3, 2, 1, 4));
+        LinkedListUtil.checkOrder(reversedHead, Arrays.asList(3, 2, 1, 4));
     }
 
 
