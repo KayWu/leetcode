@@ -9,18 +9,18 @@ import java.util.List;
 public class PreorderTraversalRecursiveSolution {
 
     public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> orderList = new ArrayList<>();
-        internalTraversal(root, orderList);
-        return orderList;
+        List<Integer> traversalList = new ArrayList<>();
+        internalTraversal(root, traversalList);
+        return traversalList;
     }
 
-    private void internalTraversal(TreeNode root, List<Integer> orderList) {
+    private void internalTraversal(TreeNode root, List<Integer> traversalList) {
         if (root == null) {
             return;
         }
-        orderList.add(root.val);
-        internalTraversal(root.left, orderList);
-        internalTraversal(root.right, orderList);
+        traversalList.add(root.val);
+        internalTraversal(root.left, traversalList);
+        internalTraversal(root.right, traversalList);
     }
 
 
