@@ -9,13 +9,13 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class PreorderTraversalRecursiveSolutionTest {
+class PreorderTraversalSolutionTest {
 
-    private PreorderTraversalRecursiveSolution solution;
+    private PreorderTraversalSolution solution;
 
     @BeforeEach
     void setUp() {
-        solution = new PreorderTraversalRecursiveSolution();
+        solution = new PreorderTraversalSolution();
     }
 
     @Test
@@ -34,6 +34,4 @@ class PreorderTraversalRecursiveSolutionTest {
         TreeNode root = TreeUtil.buildTree(Arrays.asList(3, 5, 1, 6, 2, 0, 8, null, null, 7, 4));
         assertThat(solution.preorderTraversal(root), contains(3, 5, 6, 2, 7, 4, 1, 0, 8));
     }
-
-
 }
