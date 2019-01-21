@@ -7,14 +7,14 @@ public class PowSolution {
             return 1;
         }
         if (n % 2 == 0) {
-            double result = myPow(x, n / 2);
-            return result * result;
+            double temp = myPow(x, n / 2);
+            return temp * temp;
         } else if (n > 0) {
-            double result = myPow(x, (n - 1) / 2);
-            return result * result * x;
+            double temp = myPow(x, (n - 1) / 2);
+            return temp * temp * x;
         } else {
-            double result = myPow(x, (n + 1) / 2);
-            return result * result / x;
+            double temp = myPow(x, (n + 1) / 2);
+            return temp * temp / x;
         }
     }
 }

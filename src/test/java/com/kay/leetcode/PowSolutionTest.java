@@ -27,4 +27,12 @@ class PowSolutionTest {
         assertEquals(9.261, solution.myPow(2.1, 3), 1e-5);
         assertEquals(0.25, solution.myPow(2.0, -2), 1e-5);
     }
+
+    @Test
+    void minValue() {
+        /**
+         * When n is Integer.MIN_VALUE, -n is also Integer.MIN_VALUE, which leads to mistake
+         */
+        assertEquals(0, solution.myPow(2.0, Integer.MIN_VALUE), 1e-5);
+    }
 }
