@@ -6,14 +6,8 @@ import java.util.List;
 /**
  * https://leetcode.com/problems/binary-tree-preorder-traversal/
  */
-public class PreorderTraversalSolution {
+public class PreorderTraversalRecursiveSolution {
 
-    /**
-     * recursive solution
-     *
-     * @param root
-     * @return
-     */
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> orderList = new ArrayList<>();
         internalTraversal(root, orderList);

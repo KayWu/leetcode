@@ -8,13 +8,13 @@ import java.util.Arrays;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 
-class PreorderTraversalSolutionTest {
+class PreorderTraversalRecursiveSolutionTest {
 
-    private PreorderTraversalSolution solution;
+    private PreorderTraversalRecursiveSolution solution;
 
     @BeforeEach
     void setUp() {
-        solution = new PreorderTraversalSolution();
+        solution = new PreorderTraversalRecursiveSolution();
     }
 
     @Test
