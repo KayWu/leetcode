@@ -22,7 +22,7 @@ class KthLargestTest {
     }
 
     @Test
-    void singleElement() {
+    void singletonArray() {
         int[] array = {1};
         KthLargest kthLargest = new KthLargest(2, array);
         assertEquals(kthLargest.add(3), 1);

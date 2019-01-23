@@ -42,7 +42,7 @@ class ThreeSumSolutionTest {
     }
 
     @Test
-    void dupMatchSingleTriplet() {
+    void noDupResult() {
         assertThat(solution.threeSum(new int[]{-1, -1, -1, 0, 1, 1, 1}),
                 containsInAnyOrder(Arrays.asList(-1, 0, 1)));
     }

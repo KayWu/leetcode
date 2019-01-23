@@ -23,7 +23,7 @@ class ValidBSTSolutionTest {
     }
 
     @Test
-    void singleNodeTree() {
+    void treeWithOneNode() {
         assertTrue(solution.isValidBST(new TreeNode(1)));
     }
 
