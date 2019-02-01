@@ -16,25 +16,25 @@ public class NQueensSolution {
             Arrays.fill(board[i], '.');
         }
         List<List<String>> result = new ArrayList<>();
-        dfs(0, board, new HashSet<>(), new HashSet<>(), new HashSet<>(), result);
+        dfs(0, board, new boolean[n], new boolean[2 * n], new boolean[2 * n], result);
         return result;
     }
 
-    private void dfs(int currentRow, char[][] board, Set<Integer> cols, Set<Integer> add, Set<Integer> minus, List<List<String>> result) {
+    private void dfs(int currentRow, char[][] board, boolean[] cols, boolean[] add, boolean[] minus, List<List<String>> result) {
         int n = board.length;
         if (currentRow >= n) {
             result.add(transferBoard(board));
         }
         for (int i = 0; i < n; i++) {
-            if (!cols.contains(i) && !add.contains(currentRow + i) && !minus.contains(currentRow - i)) {
-                cols.add(i);
-                add.add(currentRow + i);
-                minus.add(currentRow - i);
+            if (!cols[i] && !add[currentRow + i] && !minus[currentRow - i + n]) {
+                cols[i] = true;
+                add[currentRow + i] = true;
+                minus[currentRow - i + n] = true;
                 board[currentRow][i] = 'Q';
                 dfs(currentRow + 1, board, cols, add, minus, result);
-                cols.remove(i);
-                add.remove(currentRow + i);
-                minus.remove(currentRow - i);
+                cols[i] = false;
+                add[currentRow + i] = false;
+                minus[currentRow - i + n] = false;
                 board[currentRow][i] = '.';
             }
         }
