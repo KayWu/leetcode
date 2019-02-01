@@ -25,5 +25,6 @@ class NQueensIISolutionTest {
     @Test
     void sample() {
         assertEquals(2, solution.totalNQueens(4));
+        assertEquals(0, solution.totalNQueens(2));
     }
 }
