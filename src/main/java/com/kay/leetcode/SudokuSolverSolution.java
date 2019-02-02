@@ -1,5 +1,9 @@
 package com.kay.leetcode;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * https://leetcode.com/problems/sudoku-solver/
  */
@@ -25,21 +29,18 @@ public class SudokuSolverSolution {
                 }
             }
         }
-        dfs(0, 0, row, col, block, board);
+
+        List<Integer> cells = cellsInOrder(row, col, block, board);
+        dfs(0, cells, row, col, block, board);
     }
 
-    private boolean dfs(int rowIndex, int colIndex, boolean[][] row, boolean[][] col, boolean[][] block, char[][] board) {
-        while (rowIndex < N && colIndex < N) {
-            if (board[rowIndex][colIndex] == BLANK) {
-                break;
-            }
-            rowIndex = (colIndex + 1 < N) ? rowIndex : rowIndex + 1;
-            colIndex = (colIndex + 1 < N) ? colIndex + 1 : 0;
-        }
-
-        if (rowIndex >= N || colIndex >= N) {
+    private boolean dfs(int count, List<Integer> cells, boolean[][] row, boolean[][] col, boolean[][] block, char[][] board) {
+        if (cells.size() <= count) {
             return true;
         }
+        int sign = cells.get(count);
+        int rowIndex = (sign % 100) / 10;
+        int colIndex = sign % 10;
 
         for (int number = 1; number <= N; number++) {
             if (!row[rowIndex][number] && !col[colIndex][number] && !block[order(rowIndex, colIndex)][number]) {
@@ -47,11 +48,11 @@ public class SudokuSolverSolution {
                 col[colIndex][number] = true;
                 block[order(rowIndex, colIndex)][number] = true;
                 board[rowIndex][colIndex] = (char) (number + '0');
-                int nextRow = (colIndex + 1 < N) ? rowIndex : rowIndex + 1;
-                int nextCol = (colIndex + 1 < N) ? colIndex + 1 : 0;
-                if (dfs(nextRow, nextCol, row, col, block, board)) {
+                count++;
+                if (dfs(count, cells, row, col, block, board)) {
                     return true;
                 }
+                count--;
                 row[rowIndex][number] = false;
                 col[colIndex][number] = false;
                 block[order(rowIndex, colIndex)][number] = false;
@@ -63,6 +64,26 @@ public class SudokuSolverSolution {
 
     private int order(int rowIndex, int colIndex) {
         return rowIndex / 3 * 3 + colIndex / 3;
+    }
+
+    private List<Integer> cellsInOrder(boolean[][] row, boolean[][] col, boolean[][] block, char[][] board) {
+        List<Integer> list = new ArrayList<>();
+        for (int rowIndex = 0; rowIndex < N; rowIndex++) {
+            for (int colIndex = 0; colIndex < N; colIndex++) {
+                if (board[rowIndex][colIndex] == BLANK) {
+                    int count = 0;
+                    for (int number = 1; number <= N; number++) {
+                        if (!row[rowIndex][number] && !col[colIndex][number] && !block[order(rowIndex, colIndex)][number]) {
+                            count++;
+                        }
+                    }
+                    int key = rowIndex * 10 + colIndex + count * 100;
+                    list.add(key);
+                }
+            }
+        }
+        Collections.sort(list);
+        return list;
     }
 
 }
