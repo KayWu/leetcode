@@ -10,7 +10,7 @@ public class Trie {
 
     private static class Node {
         private Node[] next = new Node[R];
-        private boolean isFinalLetter;
+        private boolean isWord;
     }
 
     private Node root;
@@ -34,7 +34,7 @@ public class Trie {
             }
             node = node.next[c - BEGIN_LETTER];
             if (i == word.length() - 1) {
-                node.isFinalLetter = true;
+                node.isWord = true;
             }
         }
     }
@@ -44,7 +44,7 @@ public class Trie {
      */
     public boolean search(String word) {
         Node node = findNode(word);
-        return node != null && node.isFinalLetter;
+        return node != null && node.isWord;
     }
 
     /**

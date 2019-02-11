@@ -19,7 +19,7 @@ class ValidSudokuSolutionTest {
 
     @Test
     void validSudoku() {
-        char[][] board = SudokuUtil.board(Arrays.asList(
+        char[][] board = BoardUtil.board(Arrays.asList(
                 "53..7....",
                 "6..195...",
                 ".98....6.",
@@ -35,7 +35,7 @@ class ValidSudokuSolutionTest {
 
     @Test
     void invalidSudoku() {
-        char[][] board = SudokuUtil.board(Arrays.asList(
+        char[][] board = BoardUtil.board(Arrays.asList(
                 "83..7....",
                 "6..195...",
                 ".98....6.",
@@ -51,7 +51,7 @@ class ValidSudokuSolutionTest {
 
     @Test
     void invalidSudokuII() {
-        char[][] board = SudokuUtil.board(Arrays.asList(
+        char[][] board = BoardUtil.board(Arrays.asList(
                 ".87654321",
                 "2........",
                 "3........",
