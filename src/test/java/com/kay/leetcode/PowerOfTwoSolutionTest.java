@@ -29,12 +29,12 @@ class PowerOfTwoSolutionTest {
 
 
     @Test
-    void minus() {
+    void illegal() {
         assertFalse(solution.isPowerOfTwo(-2));
     }
 
     @Test
-    void greatNumber() {
+    void bigNumber() {
         assertTrue(solution.isPowerOfTwo(1024));
     }
 
