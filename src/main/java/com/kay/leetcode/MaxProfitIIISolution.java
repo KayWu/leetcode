@@ -5,8 +5,6 @@ package com.kay.leetcode;
  */
 public class MaxProfitIIISolution {
 
-    private static final int T_LIMIT = 2;
-
     public int maxProfit(int[] prices) {
         if (prices == null) {
             throw new IllegalArgumentException();
@@ -16,18 +14,24 @@ public class MaxProfitIIISolution {
         }
 
         int n = prices.length;
-        // i 表示第几天，j 表示交易次数
-        int[][] withStock = new int[n][T_LIMIT + 1];
-        int[][] withoutStock = new int[n][T_LIMIT + 1];
-        withStock[0][0] = Integer.MIN_VALUE;
-        withStock[0][1] = -prices[0];
-        withStock[0][2] = Integer.MIN_VALUE;
+        // 分别表示第几天，交易次数，所持股票数量
+        // 买入视为一次交易
+        // Integer.MIN_VALUE / 2 防止溢出
+        int[][][] profit = new int[n][3][2];
+        profit[0][0][0] = 0;
+        profit[0][0][1] = Integer.MIN_VALUE / 2;
+        profit[0][1][0] = Integer.MIN_VALUE / 2;
+        profit[0][1][1] = -prices[0];
+        profit[0][2][0] = Integer.MIN_VALUE / 2;
+        profit[0][2][1] = Integer.MIN_VALUE / 2;
         for (int i = 1; i < n; i++) {
-            withStock[i][1] = Math.max(withStock[i - 1][1], withoutStock[i - 1][0] - prices[i]);
-            withStock[i][2] = Math.max(withStock[i - 1][2], withoutStock[i - 1][1] - prices[i]);
-            withoutStock[i][1] = Math.max(withStock[i - 1][1] + prices[i], withoutStock[i - 1][1]);
-            withoutStock[i][2] = Math.max(withStock[i - 1][2] + prices[i], withoutStock[i - 1][2]);
+            profit[i][0][0] = profit[i - 1][0][0];
+            profit[i][0][1] = profit[i - 1][0][1];
+            profit[i][1][1] = Math.max(profit[i - 1][1][1], profit[i - 1][0][0] - prices[i]);
+            profit[i][2][1] = Math.max(profit[i - 1][2][1], profit[i - 1][1][0] - prices[i]);
+            profit[i][1][0] = Math.max(profit[i - 1][1][0], profit[i - 1][1][1] + prices[i]);
+            profit[i][2][0] = Math.max(profit[i - 1][2][0], profit[i - 1][2][1] + prices[i]);
         }
-        return Math.max(withoutStock[n - 1][0], Math.max(withoutStock[n - 1][1], withoutStock[n - 1][2]));
+        return Math.max(profit[n - 1][0][0], Math.max(profit[n - 1][1][0], profit[n - 1][2][0]));
     }
 }
