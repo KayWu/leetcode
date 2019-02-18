@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class LongestIncreasingSubsequenceSolution {
     public int lengthOfLIS(int[] nums) {
-        return WithBinarySearch(nums);
+        return dp(nums);
     }
 
     /**
@@ -24,19 +24,21 @@ public class LongestIncreasingSubsequenceSolution {
         }
         int res = 1;
         int[] dp = new int[nums.length];
-        Arrays.fill(dp, 1);
+        dp[0] = 1;
         for (int i = 1; i < nums.length; i++) {
+            int max = 0;
             for (int j = 0; j < i; j++) {
                 if (nums[j] < nums[i]) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                    max = Math.max(max, dp[j]);
                 }
             }
+            dp[i] = max + 1;
             res = Math.max(res, dp[i]);
         }
         return res;
     }
 
-    private int WithBinarySearch(int[] nums) {
+    private int withBinarySearch(int[] nums) {
         if (nums == null) {
             throw new IllegalArgumentException();
         }
