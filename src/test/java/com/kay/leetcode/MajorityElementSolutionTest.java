@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MajorityElementSolutionTest {
 
@@ -13,20 +12,6 @@ class MajorityElementSolutionTest {
     @BeforeEach
     void setUp() {
         solution = new MajorityElementSolution();
-    }
-
-    @Test
-    void nullArray() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            solution.majorityElement(null);
-        });
-    }
-
-    @Test
-    void emptyArray() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            solution.majorityElement(new int[]{});
-        });
     }
 
     @Test

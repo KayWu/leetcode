@@ -5,22 +5,14 @@ package com.kay.leetcode;
  */
 public class MajorityElementSolution {
     public int majorityElement(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            throw new IllegalArgumentException();
-        }
-        int currentElement = nums[0];
-        int currentElementCount = 0;
+        int candidate = nums[0];
+        int count = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (currentElement == nums[i]) {
-                currentElementCount++;
-            } else {
-                currentElementCount--;
+            if (count < 0) {
+                candidate = nums[i];
             }
-            if (currentElementCount < 0) {
-                currentElement = nums[i];
-                currentElementCount = 1;
-            }
+            count += (candidate == nums[i] ? 1 : -1);
         }
-        return currentElement;
+        return candidate;
     }
 }
