@@ -9,26 +9,21 @@ import java.util.Set;
 public class LongestSubStringSolution {
 
     public int lengthOfLongestSubstring(String s) {
+        int n = s.length();
         Set<Character> set = new HashSet<>();
-        int maxLength = 0;
-        int j = 0;
-        int length = 0;
-        for (int i = 0; i < s.length(); i++) {
+        int maxLength = 0, i = 0, j = 0;
+        while (i < n && j < n) {
             char c = s.charAt(i);
             if (!set.contains(c)) {
-                set.add(s.charAt(i));
-                length++;
+                set.add(c);
+                i++;
+                maxLength = Math.max(i - j, maxLength);
             } else {
-                maxLength = Math.max(maxLength, length);
-                while (s.charAt(j) != c) {
-                    set.remove(s.charAt(j));
-                    j++;
-                }
+                set.remove(c);
                 j++;
-                length = i - j + 1;
             }
         }
-        maxLength = Math.max(maxLength, length);
         return maxLength;
     }
 }
+
