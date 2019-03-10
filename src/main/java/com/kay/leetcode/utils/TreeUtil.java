@@ -1,4 +1,6 @@
-package com.kay.leetcode;
+package com.kay.leetcode.utils;
+
+import com.kay.leetcode.TreeNode;
 
 import java.util.*;
 

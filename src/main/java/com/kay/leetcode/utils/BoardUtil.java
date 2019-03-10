@@ -1,4 +1,4 @@
-package com.kay.leetcode;
+package com.kay.leetcode.utils;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
-package com.kay.leetcode;
+package com.kay.leetcode.utils;
+
+import com.kay.leetcode.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
 
 public class LinkedListUtil {
 
@@ -49,12 +49,12 @@ public class LinkedListUtil {
         return head;
     }
 
-    public static void checkOrder(ListNode head, List expectValues) {
+    public static List<Integer> orderPresent(ListNode head) {
         List<Integer> actualValues = new ArrayList<>();
         while (head != null) {
             actualValues.add(head.val);
             head = head.next;
         }
-        assertThat(actualValues, is(expectValues));
+        return actualValues;
     }
 }

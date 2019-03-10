@@ -1,5 +1,6 @@
 package com.kay.leetcode;
 
+import com.kay.leetcode.utils.BoardUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
