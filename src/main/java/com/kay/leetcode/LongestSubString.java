@@ -13,14 +13,13 @@ public class LongestSubString {
         Set<Character> set = new HashSet<>();
         int maxLength = 0, i = 0, j = 0;
         while (i < n && j < n) {
-            char c = s.charAt(i);
-            if (!set.contains(c)) {
-                set.add(c);
-                i++;
-                maxLength = Math.max(i - j, maxLength);
-            } else {
-                set.remove(c);
+            if (!set.contains(s.charAt(j))) {
+                set.add(s.charAt(j));
                 j++;
+                maxLength = Math.max(j - i, maxLength);
+            } else {
+                set.remove(s.charAt(i));
+                i++;
             }
         }
         return maxLength;
