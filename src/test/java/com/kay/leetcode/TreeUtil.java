@@ -1,8 +1,6 @@
 package com.kay.leetcode;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class TreeUtil {
 
@@ -35,5 +33,30 @@ public class TreeUtil {
         }
         return root;
     }
+
+    public static List<Integer> orderPresent(TreeNode root) {
+        Deque<TreeNode> queue = new LinkedList<>();
+        List<Integer> orderList = new ArrayList<>();
+        if (root == null) {
+            return orderList;
+        }
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (node == null) {
+                orderList.add(null);
+            } else {
+                orderList.add(node.val);
+                queue.add(node.left);
+                queue.add(node.right);
+            }
+        }
+
+        while (!orderList.isEmpty() && orderList.get(orderList.size() - 1) == null) {
+            orderList.remove(orderList.size() - 1);
+        }
+        return orderList;
+    }
+
 
 }
