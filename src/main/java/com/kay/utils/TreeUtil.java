@@ -1,7 +1,5 @@
 package com.kay.utils;
 
-import com.kay.leetcode.TreeNode;
-
 import java.util.*;
 
 public class TreeUtil {

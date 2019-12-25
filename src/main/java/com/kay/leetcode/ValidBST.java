@@ -1,5 +1,7 @@
 package com.kay.leetcode;
 
+import com.kay.utils.TreeNode;
+
 /**
  * https://leetcode.com/problems/validate-binary-search-tree/
  */

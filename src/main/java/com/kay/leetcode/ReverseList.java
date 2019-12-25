@@ -1,5 +1,7 @@
 package com.kay.leetcode;
 
+import com.kay.utils.ListNode;
+
 /**
  * https://leetcode.com/problems/reverse-linked-list/
  */

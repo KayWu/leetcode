@@ -1,5 +1,7 @@
 package com.kay.leetcode;
 
+import com.kay.utils.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;

@@ -1,5 +1,6 @@
 package com.kay.leetcode;
 
+import com.kay.utils.TreeNode;
 import com.kay.utils.TreeUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

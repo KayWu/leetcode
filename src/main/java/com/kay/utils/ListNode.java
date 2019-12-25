@@ -1,4 +1,4 @@
-package com.kay.leetcode;
+package com.kay.utils;
 
 public class ListNode {
     public int val;

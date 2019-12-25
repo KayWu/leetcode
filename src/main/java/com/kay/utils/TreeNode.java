@@ -1,4 +1,4 @@
-package com.kay.leetcode;
+package com.kay.utils;
 
 public class TreeNode {
     public int val;

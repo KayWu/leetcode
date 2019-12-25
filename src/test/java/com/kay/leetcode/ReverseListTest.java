@@ -1,6 +1,7 @@
 package com.kay.leetcode;
 
 import com.kay.utils.LinkedListUtil;
+import com.kay.utils.ListNode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

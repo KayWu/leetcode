@@ -1,5 +1,7 @@
 package com.kay.leetcode;
 
+import com.kay.utils.ListNode;
+
 /**
  * https://leetcode.com/problems/linked-list-cycle-ii
  */
@@ -10,6 +12,7 @@ public class LinkedListCycleII {
      * 2(x + ay + z) = x + by + z => x + z = (b-2a)y
      * x + by + z + x => x + 2(b - a)y 即 cycle 起点
      * 由于 slow 已经在 cycle 过后 z 长度，它再走 x 则会回到 cycle 起点
+     *
      * @param head
      * @return
      */
