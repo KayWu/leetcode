@@ -4,6 +4,14 @@ import com.kay.utils.ListNode;
 
 /**
  * https://leetcode.com/problems/reverse-linked-list/
+ * 单链表反转
+ * 关键点确定单次步骤的起始和终点
+ * 起点
+ * 0      1  ->  2
+ * prev   cur
+ * 终点
+ * 0  <-  1      2
+ * prev   cur
  */
 public class ReverseList {
 
