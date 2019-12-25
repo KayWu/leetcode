@@ -1,8 +1,9 @@
-package com.kay.leetcode.utils;
+package com.kay.utils;
 
 public class MountainArray {
 
     private int[] array;
+
     public MountainArray(int[] array) {
         this.array = array;
     }
@@ -13,5 +14,7 @@ public class MountainArray {
 
     public int length() {
         return array.length;
-    };
+    }
+
+    ;
 }

@@ -1,6 +1,6 @@
 package com.kay.leetcode;
 
-import com.kay.leetcode.utils.MountainArray;
+import com.kay.utils.MountainArray;
 
 /**
  * https://leetcode.com/problems/find-in-mountain-array/
