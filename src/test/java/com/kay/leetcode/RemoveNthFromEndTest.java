@@ -25,7 +25,7 @@ public class RemoveNthFromEndTest {
     }
 
     @Test
-    void twoNode() {
+    void twoNodes() {
         ListNode head = solution.removeNthFromEnd(LinkedListUtil.buildLinkedList(1, 2), 1);
         assertEquals(List.of(1), LinkedListUtil.orderPresent(head));
     }

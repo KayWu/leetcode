@@ -33,7 +33,7 @@ class LinkedListCycleIITest {
     }
 
     @Test
-    void testTwoNode() {
+    void testTwoNodes() {
         ListNode head = LinkedListUtil.buildLinkedList(1, 2);
         assertNull(solution.detectCycle(head));
     }
