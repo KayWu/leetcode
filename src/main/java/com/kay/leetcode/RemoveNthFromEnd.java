@@ -4,10 +4,18 @@ import com.kay.utils.ListNode;
 
 /**
  * https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+ * 两种解题方法
  */
 public class RemoveNthFromEnd {
 
-    public ListNode removeNthFromEnd(ListNode head, int n) {
+    /**
+     * 遍历两遍，第一遍获取长度，第二遍删除 Node
+     *
+     * @param head
+     * @param n
+     * @return
+     */
+    public ListNode removeNthFromEndInTwoPass(ListNode head, int n) {
         if (head == null) {
             return head;
         }
@@ -35,4 +43,36 @@ public class RemoveNthFromEnd {
         cur.next = cur.next.next;
         return dummy.next;
     }
+
+    /**
+     * 遍历一遍，通过两个 pointer
+     *
+     * @param head
+     * @param n
+     * @return
+     */
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        if (head == null) {
+            return null;
+        }
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode fast = dummy;
+        ListNode slow = dummy;
+
+        for (int i = 0; i < n; i++) {
+            fast = fast.next;
+        }
+
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        slow.next = slow.next.next;
+
+        return dummy.next;
+    }
+
+
 }
