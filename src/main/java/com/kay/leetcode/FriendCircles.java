@@ -28,12 +28,17 @@ public class FriendCircles {
         }
 
         private int findRoot(int i) {
-            while (roots[i] != i) {
-                // 路径压缩
-                roots[i] = roots[roots[i]];
-                i = roots[i];
+            int root = i;
+            while (root != roots[root]) {
+                root = roots[root];
             }
-            return i;
+            // 路径压缩
+            while (i != roots[i]) {
+                int tmp = roots[i];
+                roots[i] = root;
+                i = tmp;
+            }
+            return root;
         }
 
         public boolean isConnected(int p, int q) {
