@@ -5,13 +5,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LongestSubStringTest {
+class LongestSubstringTest {
 
-    private LongestSubString solution;
+    private LongestSubstring solution;
 
     @BeforeEach
     void setUp() {
-        solution = new LongestSubString();
+        solution = new LongestSubstring();
     }
 
     @Test
