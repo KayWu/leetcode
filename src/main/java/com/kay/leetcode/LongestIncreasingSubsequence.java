@@ -38,7 +38,10 @@ public class LongestIncreasingSubsequence {
         return res;
     }
 
-    private int withBinarySearch(int[] nums) {
+    /**
+     * 构造最长上升子序列 - 通过二分查找
+     */
+    private int constructLISWithBS(int[] nums) {
         if (nums == null) {
             throw new IllegalArgumentException();
         }
