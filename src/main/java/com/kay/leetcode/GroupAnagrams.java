@@ -13,8 +13,8 @@ public class GroupAnagrams {
             char[] a = s.toCharArray();
             Arrays.sort(a);
             String key = String.valueOf(a);
-            List<String> set = map.computeIfAbsent(key, k -> new ArrayList<>());
-            set.add(s);
+            List<String> list = map.computeIfAbsent(key, k -> new ArrayList<>());
+            list.add(s);
         }
 
         List<List<String>> ans = new ArrayList<>();
