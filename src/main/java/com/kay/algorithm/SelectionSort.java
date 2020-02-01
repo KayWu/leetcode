@@ -3,20 +3,15 @@ package com.kay.algorithm;
 public class SelectionSort {
 
     public void sort(int[] a) {
-        int n = a.length;
-        if (n <= 1) {
-            return;
-        }
-
-        for (int i = 0; i < n; i++) {
-            int minOrder = i;
-            for (int j = i + 1; j < n; j++) {
-                if (a[minOrder] > a[j]) {
-                    minOrder = j;
+        for (int i = 0; i < a.length; i++) {
+            int min = i;
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[j] < a[min]) {
+                    min = j;
                 }
             }
-            int tmp = a[minOrder];
-            a[minOrder] = a[i];
+            int tmp = a[min];
+            a[min] = a[i];
             a[i] = tmp;
         }
     }
