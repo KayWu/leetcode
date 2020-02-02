@@ -37,5 +37,18 @@ public class MergeSortTest {
         assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6}, a);
     }
 
+    @Test
+    void dup() {
+        int[] a = {1, 1, 1};
+        solution.sort(a);
+        assertArrayEquals(new int[]{1, 1, 1}, a);
+    }
+
+    @Test
+    void notUnique() {
+        int[] a = {1, 2, 3, 3, 2, 1};
+        solution.sort(a);
+        assertArrayEquals(new int[]{1, 1, 2, 2, 3, 3}, a);
+    }
 }
 

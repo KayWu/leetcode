@@ -10,15 +10,17 @@ public class QuickSort {
         if (l >= h) {
             return;
         }
-        int j = partition(a, l, h);
-        sort(a, l, j - 1);
-        sort(a, j + 1, h);
+        int i = partition(a, l, h);
+        sort(a, l, i - 1);
+        sort(a, i + 1, h);
     }
 
     private int partition(int[] a, int l, int h) {
+        int v = a[l];
+
         int i = l + 1;
         int j = h;
-        int v = a[l];
+
         while (true) {
             while (i < h && a[i] <= v) {
                 i++;
@@ -30,14 +32,17 @@ public class QuickSort {
                 break;
             }
             exch(a, i, j);
+            i++;
+            j--;
         }
         exch(a, l, j);
         return j;
     }
 
     private void exch(int[] a, int i, int j) {
-        int tmp = a[j];
-        a[j] = a[i];
-        a[i] = tmp;
+        int tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
     }
+
 }
