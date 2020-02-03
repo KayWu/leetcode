@@ -6,15 +6,14 @@ public class Pow {
         if (n == 0) {
             return 1;
         }
-        if (n % 2 == 0) {
-            double temp = myPow(x, n / 2);
-            return temp * temp;
-        } else if (n > 0) {
-            double temp = myPow(x, (n - 1) / 2);
-            return temp * temp * x;
+
+        if (n % 2 == -1) {
+            x = myPow(x * x, n / 2) / x;
+        } else if (n % 2 == 1) {
+            x = myPow(x * x, n / 2) * x;
         } else {
-            double temp = myPow(x, (n + 1) / 2);
-            return temp * temp / x;
+            x = myPow(x * x, n / 2);
         }
+        return x;
     }
 }
