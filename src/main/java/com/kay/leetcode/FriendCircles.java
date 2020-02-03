@@ -52,6 +52,7 @@ public class FriendCircles {
                 return;
             }
             count--;
+            // 注意是 pRoot 而不是 p
             roots[pRoot] = qRoot;
         }
     }

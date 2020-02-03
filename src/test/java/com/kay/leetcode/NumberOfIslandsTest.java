@@ -35,6 +35,24 @@ class NumberOfIslandsTest {
     }
 
     @Test
+    void notSquare() {
+        assertEquals(1, solution.numIslands(BoardUtil.board(Arrays.asList(
+            "1",
+            "1"
+        ))));
+    }
+
+    @Test
+    void failCase() {
+        assertEquals(1, solution.numIslands(BoardUtil.board(Arrays.asList(
+                "111",
+                "010",
+                "111"
+        ))));
+    }
+
+
+    @Test
     void zeroLength() {
         assertEquals(0, solution.numIslands(new char[0][0]));
     }
