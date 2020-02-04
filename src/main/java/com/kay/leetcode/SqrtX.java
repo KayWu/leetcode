@@ -18,4 +18,26 @@ public class SqrtX {
         }
         return (int) r;
     }
+
+    /**
+     * 二分法
+     * @param x
+     * @return
+     */
+    public int mySqrtBinary(int x) {
+        double l = 0;
+        double r = x;
+
+        while (r-l > 1e-5) {
+            double mid = l + (r-l)/2.0;
+            if (mid * mid == x) {
+                return (int)mid;
+            } else if (mid * mid > x) {
+                r = mid;
+            } else {
+                l = mid;
+            }
+        }
+        return (int)r;
+    }
 }

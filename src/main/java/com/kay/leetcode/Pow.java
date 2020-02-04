@@ -1,5 +1,8 @@
 package com.kay.leetcode;
 
+/**
+ * https://leetcode.com/problems/powx-n/
+ */
 public class Pow {
 
     public double myPow(double x, int n) {
