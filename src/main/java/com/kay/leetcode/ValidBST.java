@@ -8,8 +8,7 @@ import com.kay.utils.TreeNode;
 public class ValidBST {
 
     public boolean isValidBST(TreeNode root) {
-        if (root == null) return true;
-        return isValidBST(root.left, null, root.val) && isValidBST(root.right, root.val, null);
+        return isValidBST(root, null, null);
     }
 
     private boolean isValidBST(TreeNode root, Integer min, Integer max) {
