@@ -27,6 +27,14 @@ class LongestSubstringTest {
     }
 
     @Test
+    void fail() {
+        assertEquals(2, solution.lengthOfLongestSubstring("aab"));
+        assertEquals(5, solution.lengthOfLongestSubstring("tmmzuxt"));
+
+    }
+
+
+    @Test
     void empty() {
         assertEquals(0, solution.lengthOfLongestSubstring(""));
     }

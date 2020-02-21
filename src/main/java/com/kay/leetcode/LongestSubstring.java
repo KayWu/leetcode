@@ -9,20 +9,22 @@ import java.util.Map;
 public class LongestSubstring {
 
     public int lengthOfLongestSubstring(String s) {
-        int i = 0;
+        Map<Character, Integer> map = new HashMap<>();
         int j = 0;
         int ans = 0;
-        Map<Character, Integer> map = new HashMap<>();
-        while (j < s.length()) {
-            char c = s.charAt(j);
-            Integer v = map.get(c);
-            if (v == null || v < i) {
-                ans = Math.max(ans, j - i + 1);
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (map.get(c) == null) {
+                ans = Math.max(i - j + 1, ans);
             } else {
-                i = map.get(c) + 1;
+                int prev = map.get(c);
+                if (prev >= j) {
+                    j = prev + 1;
+                } else {
+                    ans = Math.max(i - j + 1, ans);
+                }
             }
-            map.put(c, j);
-            j++;
+            map.put(c, i);
         }
         return ans;
     }
