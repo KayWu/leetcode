@@ -10,33 +10,22 @@ public class QuickSort {
         if (l >= h) {
             return;
         }
-        int i = partition(a, l, h);
-        sort(a, l, i - 1);
-        sort(a, i + 1, h);
+        int p = partition(a, l, h);
+        sort(a, l, p - 1);
+        sort(a, p + 1, h);
     }
 
     private int partition(int[] a, int l, int h) {
-        int v = a[l];
-
-        int i = l + 1;
-        int j = h;
-
-        while (true) {
-            while (i < h && a[i] <= v) {
+        int pivot = a[h];
+        int i = l;
+        for (int j = l; j < h; j++) {
+            if (a[j] < pivot) {
+                exch(a, i, j);
                 i++;
             }
-            while (j > l && a[j] >= v) {
-                j--;
-            }
-            if (i >= j) {
-                break;
-            }
-            exch(a, i, j);
-            i++;
-            j--;
         }
-        exch(a, l, j);
-        return j;
+        exch(a, i, h);
+        return i;
     }
 
     private void exch(int[] a, int i, int j) {
@@ -44,5 +33,6 @@ public class QuickSort {
         a[i] = a[j];
         a[j] = tmp;
     }
+
 
 }
