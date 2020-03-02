@@ -23,8 +23,9 @@ class SqrtXTest {
     }
 
     @Test
-    void zero() {
+    void fail() {
         assertEquals(46339, solution.mySqrt(2147395599));
+        assertEquals(1, solution.mySqrt(0));
     }
 
     @Test
