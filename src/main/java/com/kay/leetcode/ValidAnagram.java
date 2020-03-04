@@ -14,11 +14,11 @@ public class ValidAnagram {
         }
 
         int[] map = new int[26];
-        for (Character c : s.toCharArray()) {
+        for (char c : s.toCharArray()) {
             int ord = c - 'a';
             map[ord] = map[ord] + 1;
         }
-        for (Character c : t.toCharArray()) {
+        for (char c : t.toCharArray()) {
             int ord = c - 'a';
             int remainCount = map[ord];
             if (remainCount <= 0) {
