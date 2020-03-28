@@ -13,30 +13,30 @@ public class FindAnagrams {
             return ans;
         }
         int[] map = new int[26];
+        int toMatch = p.length();
+
         for (char c : p.toCharArray()) {
             map[c - 'a']++;
         }
-        int i = 0;
-        int j = 0;
-        int remain = p.length();
-        while (j < s.length()) {
-            char cj = s.charAt(j);
-            if (map[cj - 'a'] > 0) {
-                remain--;
+        for (int i = 0; i < s.length(); i++) {
+            char add = s.charAt(i);
+            if (map[add - 'a'] > 0) {
+                toMatch--;
             }
-            map[cj - 'a']--;
-            if (remain == 0) {
-                ans.add(i);
-            }
-            if (j - i == p.length() - 1) {
-                char ci = s.charAt(i);
-                if (map[ci - 'a'] >= 0) {
-                    remain++;
+            map[add - 'a']--;
+
+            if (i >= p.length()) {
+                char remove = s.charAt(i - p.length());
+                if (map[remove - 'a'] >= 0) {
+                    toMatch++;
                 }
-                map[ci - 'a']++;
-                i++;
+                map[remove - 'a']++;
             }
-            j++;
+            if (i >= p.length() - 1) {
+                if (toMatch == 0) {
+                    ans.add(i - p.length() + 1);
+                }
+            }
         }
         return ans;
     }
