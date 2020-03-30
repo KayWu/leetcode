@@ -33,7 +33,7 @@ public class MaxProfitIV {
         profit[0][1][1] = -prices[0];
         for (int i = 1; i < n; i++) {
             profit[i][0][1] = profit[i - 1][0][1];
-            profit[i][0][0] = profit[i][0][0];
+            profit[i][0][0] = profit[i - 1][0][0];
             for (int j = 1; j <= k; j++) {
                 profit[i][j][1] = Math.max(profit[i - 1][j][1], profit[i - 1][j - 1][0] - prices[i]);
                 profit[i][j][0] = Math.max(profit[i - 1][j][0], profit[i - 1][j][1] + prices[i]);
