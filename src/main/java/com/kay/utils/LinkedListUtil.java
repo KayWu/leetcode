@@ -1,23 +1,20 @@
 package com.kay.utils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
 public class LinkedListUtil {
 
     public static ListNode buildLinkedList(int... values) {
-        ListNode head = null, prev = null;
+        ListNode dummy = new ListNode(-1);
+        ListNode cur = dummy;
         for (int i = 0; i < values.length; i++) {
-            ListNode node = new ListNode(values[i]);
-            if (prev != null) {
-                prev.next = node;
-            } else {
-                head = node;
-            }
-            prev = node;
+            cur.next = new ListNode(values[i]);
+            cur = cur.next;
         }
-        return head;
+        return dummy.next;
     }
 
     public static ListNode buildCycleLinkedList(List<Integer> values, int cyclePosition) {
@@ -54,5 +51,31 @@ public class LinkedListUtil {
             head = head.next;
         }
         return actualValues;
+    }
+
+    public static List<ListNode> buildIntersectLinkedList(List<Integer> listA, List<Integer> listB, int skipA, int skipB) {
+        ListNode dummyA = new ListNode(-1);
+        ListNode curA = dummyA;
+        ListNode intersectionNode = null;
+        for (int i = 0; i < listA.size(); i++) {
+            ListNode node = new ListNode(listA.get(i));
+            curA.next = node;
+            curA = curA.next;
+            if (i == skipA) {
+                intersectionNode = node;
+            }
+        }
+
+        ListNode dummyB = new ListNode(-1);
+        ListNode curB = dummyB;
+        for (int i = 0; i < listB.size(); i++) {
+            if (i == skipB) {
+                curB.next = intersectionNode;
+                break;
+            }
+            curB.next = new ListNode(listB.get(i));
+            curB = curB.next;
+        }
+        return Arrays.asList(dummyA.next, dummyB.next);
     }
 }
