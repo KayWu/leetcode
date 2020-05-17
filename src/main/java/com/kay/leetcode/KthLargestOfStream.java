@@ -5,12 +5,12 @@ import java.util.PriorityQueue;
 /**
  * https://leetcode.com/problems/kth-largest-element-in-a-stream/
  */
-public class KthLargest {
+public class KthLargestOfStream {
 
     private PriorityQueue<Integer> priorityQueue;
     private int k;
 
-    public KthLargest(int k, int[] nums) {
+    public KthLargestOfStream(int k, int[] nums) {
         if (k < 0 || nums == null || nums.length < k - 1) {
             throw new IllegalArgumentException();
         }
